@@ -1,0 +1,50 @@
+{% extends 'base.html' %} {% set active_page = "create" %} {% block head %}
+<title>Justin Olson | Create</title>
+{% endblock %} {% block body %}
+<div class="create_post_div col-lg-6 col-md-8 mx-auto">
+  <div class="create_post_form">
+    <form action="/create" method="POST">
+      <input
+        type="text"
+        name="title"
+        id="title"
+        class="inputs"
+        placeholder="Title"
+      />
+      <textarea
+        name="content"
+        id="content"
+        class="inputs"
+        rows="6"
+        placeholder="Post"
+      ></textarea>
+      <input type="submit" value="Post" class="sub_button" />
+    </form>
+  </div>
+</div>
+<div class="create_wrapper">
+  {% for post in posts %}
+  <div class="create_post col-lg-8 mx-auto">
+    <p class="post_title lead">{{ post.title }}</p>
+    <p class="post_created lead">
+      {{ post.created.strftime("%A, %b %d %Y @ %I:%M %p") }}
+    </p>
+    <p class="post_content lead">{{ post.content }}</p>
+    <a href="/create/edit/{{ post.id }}"
+      ><img
+        src="../static/images/edit.png"
+        alt="Edit Icon"
+        class="icons"
+        id="edit_icon"
+    /></a>
+    <a href="/create/delete/{{ post.id }}"
+      ><img
+        src="../static/images/trash.png"
+        alt="Trash Icon"
+        class="icons"
+        id="trash_icon"
+    /></a>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

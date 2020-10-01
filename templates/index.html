@@ -1,0 +1,100 @@
+{% extends 'base.html' %} {% set active_page = "index" %} {% block head %}
+<title>Justin Olson | Portfolio</title>
+{% endblock %} {% block body %}
+<div class="col-lg-12 mx-auto intro_wrapper" id="intro">
+  <div class="row">
+    <div class="intro_text col-lg-6">
+      <h1 class="display-1">Justin Olson</h1>
+      <h2 class="display-1">Python Developer</h2>
+      <p class="lead">
+        I'm a southern Arizona located freelance web designer/developer, and
+        Python developer. Coding since 2015, my skills range from
+        HTML/CSS/JavaScript, to Python, and many libraries/frameworks
+        in-between.
+      </p>
+      <p class="lead">
+        I love creating something from nothing, and I'm always looking for my
+        next challenge as each one makes me a stronger coder.
+      </p>
+    </div>
+    <div class="intro_blog col-lg-6">
+      <h3 class="display-1">Latest Post</h3>
+      {% if posts|length < 1 %}
+      <p class="lead">No posts yet</p>
+      {% else %} {% for post in posts %} {% if loop.first %}
+      <p class="post_title lead">{{ post.title }}</p>
+      <p class="post_created lead">
+        {{ post.created.strftime("%A, %b %d %Y @ %I:%M %p") }}
+      </p>
+      <p class="post_content lead">
+        <!-- for if statement, slice notation could also work: {{ post.content[:50] }} -->
+        {% if post.content|length > 300 %}{{ post.content|truncate(300) }}<a
+          href="{{ url_for('.blog') }}"
+          >read more</a
+        >
+        {% else %} {{ post.content }}
+      </p>
+      {% endif %} {% endif %} {% endfor %} {% endif %}
+    </div>
+  </div>
+</div>
+<div class="projects_wrapper col-lg-12 col-md-12 mx-auto" id="projects">
+  <div class="projects_header">
+    <h1 class="display-1">Projects</h1>
+  </div>
+
+  <div class="calendar"></div>
+
+  <div class="row project_cards">
+    {% for project in projects %}
+    <div class="project_card col-md-5 mx-auto">
+      <h1 class="display-1">{{ project.title }}</h1>
+      <ul>
+        {% for language in project.languages %} {% if language == 'HTML' %}
+        <li class="lead" style="color: #fe4c40">{{ language }}</li>
+        {% elif language == 'CSS' %}
+        <li class="lead" style="color: #ff7f49">{{ language }}</li>
+        {% elif language == 'JS' %}
+        <li class="lead" style="color: #ffeb00">{{ language }}</li>
+        {% elif language == 'jQuery' %}
+        <li class="lead" style="color: #e97451">{{ language }}</li>
+        {% elif language == 'Bootstrap' %}
+        <li class="lead" style="color: #9de093">{{ language }}</li>
+        {% elif language == 'Python' %}
+        <li class="lead" style="color: #00cccc">{{ language }}</li>
+        {% elif language == 'Flask' %}
+        <li class="lead" style="color: #6456b7">{{ language }}</li>
+        {% elif language == 'SQLAlchemy' %}
+        <li class="lead" style="color: #d96cbe">{{ language }}</li>
+        {% endif %} {% endfor %}
+      </ul>
+      <p class="lead">{{ project.description }}</p>
+      <a href="{{ project.github }}" target="_blank">
+        <button type="button" class="btn btn-outline-dark">Github</button>
+      </a>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+<div class="contact_wrapper col-lg-12 col-md-12 mx-auto" id="contact">
+  <div class="contact_interior">
+    <div class="email_container">
+      <a href="mailto:jolsondigital@gmail.com">
+        <h1 class="actual animated">jolsondigital@gmail.com</h1>
+      </a>
+    </div>
+    <div class="contact_img_container">
+      <img
+        src="{{ url_for('static', filename='images/arizona-outline-logo.png') }}"
+        alt="Arizona Outline"
+      />
+    </div>
+    <div class="resume_container">
+      <a href="{{ url_for('static', filename='files/JROResume 9-2020.doc') }}"
+         target="_blank">
+        <h1 class="resume_dl">r&#233;sum&#233;.pdf</h1>
+      </a>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,513 @@
+/*
+General
+*/
+
+.navbar-nav li a {
+  text-align: center;
+}
+
+/*
+Intro Pane
+*/
+
+.intro_wrapper {
+  display: flex;
+  /* align-content: space-around; for biggger screens, also add top/bottom
+margins to intro text and intro blog to condense
+ */
+  align-content: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  height: 100vh;
+  border-bottom: 1px solid #212529;
+}
+
+.intro_text {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.intro_text h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.intro_text h2 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.intro_text p {
+  font-size: 1rem;
+  margin: 0.5em auto;
+}
+
+.intro_blog {
+  margin-top: 24px;
+  padding: 0 1.5rem;
+  border-left: 1px solid #212529;
+  border-right: 1px solid #212529;
+}
+
+.intro_blog h3 {
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.intro_blog p {
+  font-size: 0.8rem;
+  margin-bottom: 4px;
+}
+
+.post_created {
+  text-align: right;
+}
+
+/*
+Projects Pane
+*/
+
+.projects_wrapper {
+  padding: 6rem 0;
+  border-bottom: 1px solid #212529;
+}
+
+.projects_header h1 {
+  font-size: 2rem;
+  margin-bottom: 4rem;
+  text-align: center;
+}
+
+.projects_wrapper .calendar {
+  text-align: center;
+  margin-bottom: 4rem;
+  width: 300px;
+}
+
+.projects_wrapper .calendar .position-relative h2 {
+  margin-top: 1rem;
+}
+
+.projects_wrapper .calendar .position-relative .border {
+  border: none !important;
+}
+
+.project_card {
+  margin-bottom: 3rem;
+  height: 320px;
+  border-radius: 5px;
+  color: white;
+  background-color: #212529;
+}
+
+.project_card h1 {
+  font-size: 1.75rem;
+  border-bottom: 1px solid #212529;
+  margin-top: 0.75rem;
+}
+
+.project_card ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.project_card li {
+  display: inline;
+  margin: 0 auto;
+}
+
+.project_card p {
+  font-size: 1rem;
+}
+
+.project_card button {
+  font-size: 1.25rem;
+  position: absolute;
+  bottom: 0px;
+  left: 25%;
+  width: 50%;
+  background-color: white;
+  margin-bottom: 1.25rem;
+  padding: 0.5rem 0;
+}
+
+.project_card button:hover {
+  border: 1px solid white;
+}
+
+/*
+Contact Pane
+*/
+
+.contact_wrapper {
+  height: calc(100vh - 112px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact_interior {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: none;
+}
+
+.contact_img_container {
+  margin-bottom: 24px;
+  order: -1;
+}
+
+.contact_img_container img {
+  width: 140px;
+}
+
+.email_container {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.email_container a:link,
+.email_container a:visited,
+.email_container a:active,
+.resume_container a:link,
+.resume_container a:visited,
+.resume_container a:active {
+  color: #212529;
+  text-decoration: none;
+}
+
+.email_container a:hover,
+.resume_container a:hover {
+  color: rgba(33, 37, 41, 0.5);
+}
+
+.email_container h1 {
+  font-size: 1.25rem;
+}
+
+.resume_container {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.resume_container h1 {
+  font-size: 1.25rem;
+}
+
+/*
+Blog Pane
+*/
+
+.blog_wrapper {
+  padding: 8rem 0;
+}
+
+.blog_wrapper h1 {
+  font-size: 1.75rem;
+  margin-bottom: 4rem;
+  text-align: center;
+}
+
+.blog_post {
+  padding: 2rem 0.5rem;
+  border-top: 1px solid #212529;
+}
+
+.blog_post p {
+  font-size: 0.85rem;
+}
+
+.blog_post .post_content {
+  margin-bottom: 0;
+}
+
+.blog_post:last-of-type {
+  border-bottom: 1px solid #212529;
+}
+
+/* 
+Login Page
+*/
+
+.login_div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 56px);
+}
+
+.form_header {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.form_btn {
+  background-color: transparent;
+  color: #0062cc;
+}
+
+.form_btn p {
+  margin: 0;
+}
+
+.login_form_div input {
+  margin-bottom: 0.5rem;
+}
+
+/* 
+Create Page
+*/
+
+.create_post_div {
+  margin-top: 8rem;
+}
+
+.create_wrapper {
+  padding: 4rem 0;
+}
+
+/* .create_post {
+  padding: 2rem 4rem;
+  border-bottom: 1px solid #212529;
+} */
+
+.create_post {
+  padding: 2rem 0.5rem;
+  border-top: 1px solid #212529;
+}
+
+.create_post p {
+  font-size: 0.85rem;
+}
+
+.create_post .post_content {
+  margin-bottom: 0;
+}
+
+.create_post:last-of-type {
+  border-bottom: 1px solid #212529;
+}
+
+.inputs {
+  width: 100%;
+  border: 1px solid #ccc;
+  display: block;
+  margin: 6px auto;
+  /* box-sizing used to align inputs with button width */
+  box-sizing: border-box;
+}
+
+.sub_button {
+  width: 100%;
+  display: block;
+  background-color: Transparent;
+  border: 1px solid #ccc;
+  text-align: center;
+  padding: 0;
+  margin: 0 auto;
+}
+
+.icons {
+  height: 24px;
+  margin: 12px 6px 0px;
+}
+
+/*
+Edit Page
+*/
+
+.edit_post_div {
+  height: calc(100vh - 56px);
+}
+
+.edit_post_form {
+  padding: 8rem 0;
+}
+
+/* 
+Footer
+*/
+
+footer {
+  width: 100%;
+  height: 56px; /* Set the fixed height of the footer here */
+  line-height: 56px; /* Vertically center the text there */
+  background-color: #212529;
+  color: #fff;
+  /* text-align: center; */
+  display: flex;
+}
+
+footer p {
+  margin: 0;
+  font-size: 0.8rem;
+}
+
+footer .social {
+  text-align: right;
+}
+
+footer .social a {
+  margin: 0 6px;
+}
+
+footer .social a img {
+  width: 20px;
+}
+
+/* 
+Media Queries
+*/
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .nav-item:nth-child(3) {
+    border-left: 1px solid white;
+  }
+
+  .intro_text h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .intro_text h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .intro_text p {
+    font-size: 1.2rem;
+    margin: 0.5em auto;
+  }
+
+  .intro_blog {
+    padding: 0 2rem;
+  }
+
+  .intro_blog h3 {
+    font-size: 1.8rem;
+    text-align: center;
+  }
+
+  .intro_blog p {
+    font-size: 1rem;
+    margin-bottom: 4px;
+  }
+
+  .projects_wrapper .calendar {
+    width: 600px;
+  }
+
+  .contact_img_container img {
+    width: 180px;
+  }
+
+  .email_container h1 {
+    font-size: 1.4rem;
+  }
+
+  .resume_container h1 {
+    font-size: 1.4rem;
+  }
+
+  .blog_post {
+    padding: 3rem 1rem;
+  }
+
+  .blog_post p {
+    font-size: 1.025rem;
+  }
+
+  .create_post {
+    padding: 3rem 1rem;
+  }
+
+  .create_post p {
+    font-size: 1.025rem;
+  }
+
+  .footer p {
+    margin: 0;
+    font-size: 1.1rem;
+  }
+
+  footer .social a {
+    margin: 0 10px;
+  }
+
+  .footer .social a img {
+    width: 28px;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .intro_blog {
+    border-right: none;
+  }
+
+  .projects_wrapper .calendar {
+    width: 870px;
+  }
+
+  .contact_interior {
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+
+  .contact_img_container {
+    order: 0;
+    margin-left: 40px;
+    margin-right: 40px;
+  }
+
+  .contact_img_container img {
+    width: 220px;
+  }
+
+  .email_container h1 {
+    font-size: 1.6rem;
+  }
+
+  .resume_container h1 {
+    font-size: 1.6rem;
+  }
+
+  .blog_post {
+    padding: 4rem;
+    border-top: 1px solid #212529;
+  }
+
+  .blog_post p {
+    font-size: 1.25rem;
+  }
+
+  .create_post {
+    padding: 4rem;
+    border-top: 1px solid #212529;
+  }
+
+  .create_post p {
+    font-size: 1.25rem;
+  }
+
+  .footer p {
+    margin: 0;
+    font-size: 1.25rem;
+  }
+
+  footer .social a {
+    margin: 0 16px;
+  }
+
+  .footer .social a img {
+    width: 32px;
+  }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+}

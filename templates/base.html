@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,
+              user-scalable=no,
+              initial-scale=1.0,
+              maximum-scale=1.0,
+              minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <!-- Favicon -->
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="{{ url_for('static', filename='images/favicon.ico') }}"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    />
+    <!-- CSS -->
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename='css/styles.css')}}"
+    />
+
+    <!-- Script and Link for GithubCalendar -->
+    <!-- Prepare a container for your calendar. -->
+    <script src="https://cdn.rawgit.com/IonicaBizau/github-calendar/gh-pages/dist/github-calendar.min.js"></script>
+
+    <!-- Optionally, include the theme (if you don't want to struggle to write the CSS) -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.rawgit.com/IonicaBizau/github-calendar/gh-pages/dist/github-calendar.css"
+    />
+
+    {% block head %}{% endblock %}
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+      {% if active_page == "create" %}
+      <a class="navbar-brand lead" href="/logout">JO|PD</a>
+      {% else %}
+      <a
+        class="navbar-brand lead"
+        href="{{ url_for('.index', _anchor='intro') }}"
+        >JO|PD</a
+      >
+      {% endif %}
+      <button
+        class="navbar-toggler ml-auto"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarsExample04"
+        aria-controls="navbarsExample04"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExample04">
+        <ul class="navbar-nav ml-auto">
+          {% if active_page == 'index' %}
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              href="{{ url_for('.index', _anchor='projects') }}"
+              >Projects</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              href="{{ url_for('.index', _anchor='contact') }}"
+              >Contact</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('.blog') }}">Blog</a>
+          </li>
+          {% elif active_page == 'blog' %}
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              href="{{ url_for('.index', _anchor='projects') }}"
+              >Projects</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              href="{{ url_for('.index', _anchor='contact') }}"
+              >Contact</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('.blog') }}">Blog</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('.login')}}">Login</a>
+          </li>
+          {% elif active_page == 'login' %}
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('.blog')}}">Back</a>
+          </li>
+          {% elif active_page == 'create' %}
+          <li class="nav-item">
+            <a class="nav-link" href="/logout">Logout</a>
+          </li>
+          {% elif active_page == 'edit' %}
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('.create')}}">Back</a>
+          </li>
+          {% endif %}
+        </ul>
+      </div>
+    </nav>
+    <div class="container">{% block body %}{% endblock %}</div>
+    <footer class="footer">
+      <div class="copy col-6">
+        <p>&copy; 2020 JOlsonDigital</p>
+      </div>
+      <div class="social col-6">
+        <a href="https://github.com/8BitJustin" target="_blank"
+          ><img
+            src="{{url_for('static', filename='images/github32.png')}}"
+            alt="Github Icon"
+        /></a>
+        <a href="https://www.linkedin.com/in/justinolson34/" target="_blank"
+          ><img
+            src="{{url_for('static', filename='images/linkedin32.png')}}"
+            alt="Linkedin Icon"
+        /></a>
+        <a href="https://www.instagram.com/jolsondigital/?hl=en" target="_blank"
+          ><img
+            src="{{url_for('static', filename='images/ig32.png')}}"
+            alt="Instagram Icon"
+        /></a>
+      </div>
+    </footer>
+
+    <!-- Booststrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.js"
+      integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Smooth Scroll -->
+    <script>
+      // Select all links with hashes
+      $('a[href*="#"]')
+        // Remove links that don't actually link to anything
+        .not('[href="#"]')
+        .not('[href="#0"]')
+        .click(function (event) {
+          // On-page links
+          if (
+            location.pathname.replace(/^\//, "") ==
+              this.pathname.replace(/^\//, "") &&
+            location.hostname == this.hostname
+          ) {
+            // Figure out element to scroll to
+            var target = $(this.hash);
+            target = target.length
+              ? target
+              : $("[name=" + this.hash.slice(1) + "]");
+            // Does a scroll target exist?
+            if (target.length) {
+              // Only prevent default if animation is actually gonna happen
+              event.preventDefault();
+              $("html, body").animate(
+                {
+                  scrollTop: target.offset().top - 56,
+                },
+                1000
+              );
+            }
+          }
+        });
+    </script>
+
+    <!-- Script for GitHubCalendar -->
+    <!-- https://github.com/Bloggify/github-calendar -->
+    <script>
+      new GitHubCalendar(".calendar", "8bitjustin", { responsive: true });
+    </script>
+  </body>
+</html>

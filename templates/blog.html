@@ -1,0 +1,18 @@
+{% extends 'base.html' %} {% set active_page = "blog" %} {% block head %}
+<title>Justin Olson | Blog</title>
+{% endblock %} {% block body %}
+<div class="blog_wrapper">
+  <h1 class="display-1">My posts</h1>
+  {% if posts|length < 1 %}
+  <p class="lead">No posts yet</p>
+  {% else %} {% for post in posts %}
+  <div class="blog_post col-lg-8 mx-auto">
+    <p class="post_title lead">{{ post.title }}</p>
+    <p class="post_created lead">
+      {{ post.created.strftime("%A, %b %d %Y @ %I:%M %p") }}
+    </p>
+    <p class="post_content lead">{{ post.content }}</p>
+  </div>
+  {% endfor %} {% endif %}
+</div>
+{% endblock %}
